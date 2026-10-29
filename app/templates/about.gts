@@ -1,5 +1,8 @@
+
+import AuHeading from "@appuniversum/ember-appuniversum/components/au-heading";
+
 <template>
-  <h1>About</h1>
+  <AuHeading @level="1" @skin="2">About</AuHeading>
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ex odio,
     posuere vitae est quis, ultricies facilisis ligula. Nam suscipit suscipit

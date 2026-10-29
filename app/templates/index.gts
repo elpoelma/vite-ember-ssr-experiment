@@ -1,4 +1,5 @@
 import AuFormRow from '@appuniversum/ember-appuniversum/components/au-form-row';
+import AuHeading from '@appuniversum/ember-appuniversum/components/au-heading';
 import AuLabel from '@appuniversum/ember-appuniversum/components/au-label';
 import AuLink from '@appuniversum/ember-appuniversum/components/au-link';
 import AuLinkExternal from '@appuniversum/ember-appuniversum/components/au-link';
@@ -50,32 +51,16 @@ export default class extends Component<Signature> {
   }
 
   <template>
-    <AuLink @route="about">About</AuLink>
-    <h1>Zoek naar gepubliceerde agenda's, besluiten en notulen van een bestuu</h1>
-    <h2>
+    <AuHeading @level="1" @skin="2">Zoek naar gepubliceerde agenda's, besluiten
+      en notulen van een bestuur</AuHeading>
+    <AuHeading @level="2" @skin="3">
       Stap 1: Kies het type bestuurseenheid
-    </h2>
+    </AuHeading>
     <form class="au-c-form">
       <AuFormRow>
-        <AuLabel>
-          Native HTML Select
-        </AuLabel>
-        <select>
-          <option value="">--Please choose an option--</option>
-          {{#each @model.classificatieCodes as |code|}}
-            <option
-              value={{code.attributes.label}}
-            >{{code.attributes.label}}</option>
-          {{/each}}
-        </select>
-      </AuFormRow>
-      <AuFormRow>
-        <AuLabel>
-          Ember PowerSelect
-        </AuLabel>
         <PowerSelect
           class="au-u-1-2"
-          @placeholder="Selecteer Classificatiecode"
+          @placeholder="Selecteer Type Bestuurseenheid"
           @options={{@model.classificatieCodes}}
           @selected={{this.selectedCode}}
           @searchEnabled={{true}}
@@ -87,7 +72,9 @@ export default class extends Component<Signature> {
           {{code.attributes.label}}
         </PowerSelect>
       </AuFormRow>
-      <h2>Stap 2: Kies de bestuurseenheid </h2>
+      <AuHeading @level="2" @skin="3">
+        Stap 2: Kies de bestuurseenheid
+      </AuHeading>
       <AuFormRow>
         <PowerSelect
           class="au-u-1-2"

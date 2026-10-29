@@ -49,6 +49,15 @@ export const fetchBestuurseenhedenByCode = async (codeId: string) => {
   return json.data;
 };
 
+export const fetchBestuurseenheidById = async (id: string) => {
+  const response = await fetch(
+    new URL(`/bestuurseenheden/${id}`, config.BACKEND),
+    { method: 'GET' }
+  );
+  const json = (await response.json()) as { data: Bestuurseenheid };
+  return json.data;
+};
+
 export type Zitting = {
   id: string;
   attributes: {
@@ -58,11 +67,11 @@ export type Zitting = {
 };
 
 export const fetchZittingenByBestuurseenheid = async (
-  _bestuurseenheidId: string
+  bestuurseenheidId: string
 ) => {
   const response = await fetch(
     new URL(
-      `zittingen?page[number]=0&page[size]=5&sort=-geplande-start`,
+      `zittingen?filter[bestuursorgaan][is-tijdsspecialisatie-van][bestuurseenheid][:id:]=${bestuurseenheidId}&page[number]=0&page[size]=5&sort=-geplande-start`,
       config.BACKEND
     ),
     {
