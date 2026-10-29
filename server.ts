@@ -95,18 +95,18 @@ async function start() {
  * '/' → dist/client/index.html
  * '/about' → dist/client/about/index.html
  */
-function resolvePrerenderedPath(clientDir, url) {
-  const pathname = url.split('?')[0].replace(/\/$/, '') || '/';
+function resolvePrerenderedPath(clientDir: string, url: string) {
+  const pathname = url.split('?')[0]!.replace(/\/$/, '') || '/';
   if (pathname === '/') {
     return resolve(clientDir, 'index.html');
   }
   return resolve(clientDir, pathname.slice(1), 'index.html');
 }
 
-function isAssetRequest(url) {
+function isAssetRequest(url: string) {
   const assetExtensions =
     /\.(js|mjs|css|ts|tsx|jsx|json|map|ico|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot|webp|avif|webm|mp4)(\?.*)?$/;
   return assetExtensions.test(url);
 }
 
-start();
+void start();
