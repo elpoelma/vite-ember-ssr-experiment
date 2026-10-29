@@ -1,9 +1,6 @@
-import { pageTitle } from 'ember-page-title';
-
+import BasicDropdownWormhole from 'ember-basic-dropdown/components/basic-dropdown-wormhole';
 
 <template>
-  {{pageTitle "ViteEmberSsrExperiment"}}
-  <h2 id="title">Welcome to Ember</h2>
-
+  <BasicDropdownWormhole />
   {{outlet}}
 </template>

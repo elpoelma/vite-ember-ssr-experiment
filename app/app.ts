@@ -1,20 +1,23 @@
-import Application from '@ember/application';
-import compatModules from '@embroider/virtual/compat-modules';
-import Resolver from 'ember-resolver';
-import loadInitializers from 'ember-load-initializers';
+import EmberApp from 'ember-strict-application-resolver';
 import config from 'vite-ember-ssr-experiment/config/environment';
-import { importSync, isDevelopingApp, macroCondition } from '@embroider/macros';
-import setupInspector from '@embroider/legacy-inspector-support/ember-source-4.12';
+import Router from './router.ts';
+import { setConfig } from 'ember-basic-dropdown/config';
 
-if (macroCondition(isDevelopingApp())) {
-  importSync('./deprecation-workflow');
-}
-
-export default class App extends Application {
+// import 'ember-basic-dropdown/styles';
+// import 'ember-power-select/styles';
+import "@appuniversum/ember-appuniversum/styles";
+// Basic usage:
+setConfig({
+  //@ts-expect-error rootElement is undefined
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  rootElement: config.APP.rootElement, // config.APP.rootElement is by default 'undefined' and '#ember-testing' in tests
+});
+export default class App extends EmberApp {
   modulePrefix = config.modulePrefix;
-  podModulePrefix = config.podModulePrefix;
-  Resolver = Resolver.withModules(compatModules);
-  inspector = setupInspector(this);
+  modules = {
+    './router': Router,
+    ...import.meta.glob('./{routes,templates}/**/*.{ts,gts}', { eager: true }),
+    ...import.meta.glob('./controllers/*.ts', { eager: true }),
+    ...import.meta.glob('./services/*.ts', { eager: true }),
+  };
 }
-
-loadInitializers(App, config.modulePrefix, compatModules);

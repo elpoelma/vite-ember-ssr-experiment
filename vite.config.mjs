@@ -1,15 +1,16 @@
 import { defineConfig } from 'vite';
-import { extensions, classicEmberSupport, ember } from '@embroider/vite';
+import { extensions, ember } from '@embroider/vite';
 import { babel } from '@rollup/plugin-babel';
+import { emberSsr, emberSsg } from 'vite-ember-ssr/vite-plugin';
 
 export default defineConfig({
   plugins: [
-    classicEmberSupport(),
     ember(),
-    // extra plugins here
-    babel({
-      babelHelpers: 'runtime',
-      extensions,
+    babel({ babelHelpers: 'runtime', extensions }),
+    emberSsr(),
+    emberSsg({
+      shoebox: true,
+      routes: ['index', 'about'],
     }),
   ],
 });
