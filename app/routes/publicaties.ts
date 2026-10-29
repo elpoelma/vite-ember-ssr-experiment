@@ -15,7 +15,9 @@ export default class PublicatiesRoute extends Route {
   async model(params: {
     bestuurseenheid_id: string;
   }): Promise<PublicatiesModel> {
-    const bestuurseenheid = await fetchBestuurseenheidById(params.bestuurseenheid_id);
+    const bestuurseenheid = await fetchBestuurseenheidById(
+      params.bestuurseenheid_id
+    );
     const zittingen = await fetchZittingenByBestuurseenheid(
       params.bestuurseenheid_id
     );

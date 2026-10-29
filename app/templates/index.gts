@@ -1,7 +1,5 @@
 import AuFormRow from '@appuniversum/ember-appuniversum/components/au-form-row';
 import AuHeading from '@appuniversum/ember-appuniversum/components/au-heading';
-import AuLabel from '@appuniversum/ember-appuniversum/components/au-label';
-import AuLink from '@appuniversum/ember-appuniversum/components/au-link';
 import AuLinkExternal from '@appuniversum/ember-appuniversum/components/au-link';
 import { SearchIcon } from '@appuniversum/ember-appuniversum/components/icons/search';
 import Component from '@glimmer/component';
