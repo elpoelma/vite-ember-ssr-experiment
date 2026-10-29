@@ -5,7 +5,7 @@ import { setConfig } from 'ember-basic-dropdown/config';
 
 // import 'ember-basic-dropdown/styles';
 // import 'ember-power-select/styles';
-import "@appuniversum/ember-appuniversum/styles";
+import '@appuniversum/ember-appuniversum/styles';
 // Basic usage:
 setConfig({
   //@ts-expect-error rootElement is undefined

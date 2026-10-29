@@ -108,16 +108,16 @@ export default class extends Component<Signature> {
         </PowerSelect>
       </AuFormRow>
       {{#if this.selectedEenheid}}
-      <AuFormRow>
-        <AuLinkExternal
-          @icon={{SearchIcon}}
-          @skin="button"
-          @route="publicaties"
-          @model={{this.selectedEenheid.id}}
-        >
-          Zoek publicaties
-        </AuLinkExternal>
-      </AuFormRow>
+        <AuFormRow>
+          <AuLinkExternal
+            @icon={{SearchIcon}}
+            @skin="button"
+            @route="publicaties"
+            @model={{this.selectedEenheid.id}}
+          >
+            Zoek publicaties
+          </AuLinkExternal>
+        </AuFormRow>
       {{/if}}
     </form>
   </template>

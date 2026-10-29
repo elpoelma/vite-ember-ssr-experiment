@@ -1,5 +1,8 @@
 import Route from '@ember/routing/route';
-import { fetchClassificatieCodes, type ClassificatieCode } from 'vite-ember-ssr-experiment/utils/queries';
+import {
+  fetchClassificatieCodes,
+  type ClassificatieCode,
+} from 'vite-ember-ssr-experiment/utils/queries';
 
 export interface IndexModel {
   classificatieCodes: ClassificatieCode[];

@@ -40,7 +40,7 @@ async function start() {
   // _template.html before overwriting it with prerendered content.
   const ssrTemplate = await readFile(
     resolve(clientDir, '_template.html'),
-    'utf-8',
+    'utf-8'
   );
 
   const emberApp = await createEmberApp(resolve(serverDir, 'app-ssr.mjs'));
@@ -65,7 +65,9 @@ async function start() {
 
     // Step 2: Dynamic SSR fallback
     try {
-      const rendered = await emberApp.renderRoute(url, { shoebox: SSR_SHOEBOX });
+      const rendered = await emberApp.renderRoute(url, {
+        shoebox: SSR_SHOEBOX,
+      });
       const html = assembleHTML(ssrTemplate, rendered);
 
       if (rendered.error) app.log.error(rendered.error, 'SSR rendering error');

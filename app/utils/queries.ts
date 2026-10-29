@@ -54,10 +54,12 @@ export type Zitting = {
   attributes: {
     uri: string;
     'geplande-start': string;
-  }
-}
+  };
+};
 
-export const fetchZittingenByBestuurseenheid = async (_bestuurseenheidId: string) => {
+export const fetchZittingenByBestuurseenheid = async (
+  _bestuurseenheidId: string
+) => {
   const response = await fetch(
     new URL(
       `zittingen?page[number]=0&page[size]=5&sort=-geplande-start`,
@@ -71,4 +73,4 @@ export const fetchZittingenByBestuurseenheid = async (_bestuurseenheidId: string
     data: Zitting[];
   };
   return json.data;
-}
+};

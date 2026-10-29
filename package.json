@@ -19,7 +19,6 @@
     "build:server": "vite build --ssr app/app-ssr.ts",
     "build:all": "pnpm build:client && pnpm build:server",
     "start:server": "node server.ts",
-    
     "lint": "concurrently \"pnpm:lint:*(!fix)\" --names \"lint:\" --prefixColors auto",
     "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto",
     "lint:format": "prettier . --cache --check",

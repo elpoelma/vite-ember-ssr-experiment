@@ -43,7 +43,7 @@ export default {
         regenerator: false,
       },
     ],
-    "ember-concurrency/async-arrow-task-transform",
+    'ember-concurrency/async-arrow-task-transform',
     ...macros.babelMacros,
   ],
 
