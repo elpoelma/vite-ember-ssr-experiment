@@ -5,13 +5,13 @@ An Ember application using vite-ember-ssr with data from https://publicatie.geli
 This application is a hybrid SSG-SSR setup.
 
 The following routes are SSG rendered:
+
 - Index
 - About
 
 The following routes are SSR rendered:
+
 - Publicaties
-
-
 
 See https://github.com/evoactivity/vite-ember-ssr/tree/main/test-apps for more examples
 
